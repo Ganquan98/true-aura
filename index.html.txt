@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ee">
+  <meta name="description" content="TRUE AURA — thoughtful everyday essentials for home, pets, journeys and play. Quality you can trust.">
+  <title>TRUE AURA — Quality You Can Trust</title>
+  <style>
+    :root {
+      --paper: #f6f4ee;
+      --paper-deep: #eeece3;
+      --ink: #1d302c;
+      --ink-soft: #52625b;
+      --green: #31564a;
+      --green-deep: #203d34;
+      --sage: #dce4d8;
+      --gold: #b38d54;
+      --line: rgba(29, 48, 44, .14);
+      --white: #fffefa;
+      --shadow: 0 18px 45px rgba(29, 48, 44, .08);
+      --radius: 22px;
+      --sans: "Aptos", "Segoe UI", Arial, sans-serif;
+      --arabic: "Tahoma", "Arial", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.55; }
+    body.ar { font-family: var(--arabic); }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .announcement { background: var(--green-deep); color: #f8f5ec; text-align: center; padding: 9px 16px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(246,244,238,.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .header-inner { max-width: 1240px; margin: auto; padding: 17px 28px; display: flex; align-items: center; justify-content: space-between; gap: 26px; }
+    
+    /* 全新的纯文字 Logo 设计 */
+    .brand { display: inline-flex; align-items: center; min-width: 190px; direction: ltr; }
+    .brand-wordmark { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand-name { 
+      font-family: Georgia, "Times New Roman", serif; 
+      font-size: 22px; 
+      font-weight: 500; 
+      letter-spacing: 0.22em; 
+    }
+    .brand-name .diamond { 
+      font-size: 11px; 
+      color: var(--gold); 
+      vertical-align: middle; 
+      margin: 0 2px; 
+    }
+    .brand-ar { 
+      margin-top: 6px; 
+      font-family: var(--arabic); 
+      font-size: 11px; 
+      color: var(--ink-soft); 
+      letter-spacing: 0.08em; 
+    }
+
+    .nav { display: flex; align-items: center; gap: 31px; font-size: 12px; color: var(--ink-soft); }
+    .nav a { transition: color .2s; }
+    .nav a:hover { color: var(--gold); }
+    .header-actions { display: flex; align-items: center; gap: 13px; }
+    .lang-toggle { background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 8px 13px; color: var(--ink); font-size: 11px; letter-spacing: .07em; }
+    .header-contact { background: var(--green); color: white; padding: 11px 17px; border-radius: 99px; font-size: 11px; letter-spacing: .05em; transition: background .2s, transform .2s; }
+    .header-contact:hover, .button-primary:hover { background: var(--green-deep); transform: translateY(-1px); }
+    .hero { max-width: 1240px; margin: auto; padding: 72px 28px 74px; display: grid; grid-template-columns: 1.02fr .98fr; gap: 46px; align-items: center; }
+    .eyebrow { color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+    .eyebrow:before { content: ""; display: inline-block; width: 29px; height: 1px; background: var(--gold); }
+    h1 { font-size: clamp(43px, 5.1vw, 70px); line-height: .99; letter-spacing: -.055em; font-weight: 520; margin: 23px 0 21px; max-width: 590px; }
+    h1 em { color: var(--green); font-style: normal; }
+    .hero-copy { color: var(--ink-soft); font-size: 15px; line-height: 1.85; max-width: 475px; margin: 0 0 27px; }
+    .hero-ar { font-family: var(--arabic); color: var(--ink-soft); font-size: 17px; margin: -9px 0 24px; }
+    .hero-actions { display: flex; align-items: center; gap: 19px; flex-wrap: wrap; }
+    .button-primary { border: 0; border-radius: 99px; background: var(--green); color: white; padding: 14px 22px; font-size: 12px; letter-spacing: .04em; transition: .2s; display: inline-flex; align-items: center; gap: 16px; }
+    .text-link { font-size: 12px; color: var(--ink); border-bottom: 1px solid var(--gold); padding: 7px 0; }
+    .hero-note { margin-top: 35px; display: flex; align-items: center; gap: 12px; font-size: 10px; color: #7b857d; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-note span { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; }
+    .hero-visual { min-height: 470px; position: relative; border-radius: 32px; background: #e7e8dc; overflow: hidden; box-shadow: var(--shadow); }
+    .hero-visual:before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; background: rgba(255,255,255,.42); right: -75px; top: -110px; }
+    .hero-visual:after { content: ""; position: absolute; width: 260px; height: 260px; border: 1px solid rgba(49,86,74,.18); border-radius: 50%; right: 11%; top: 11%; }
+    .visual-kicker { position: absolute; z-index: 2; left: 27px; top: 25px; font-size: 9px; letter-spacing: .2em; color: #68776c; text-transform: uppercase; }
+    .hero-product { position: absolute; z-index: 3; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(29,48,44,.09); box-shadow: 0 16px 35px rgba(29,48,44,.13); }
+    .hero-product svg { width: 75%; height: 75%; }
+    .hero-product.one { width: 190px; height: 220px; background: #f5efe3; border-radius: 100px 100px 20px 20px; left: 14%; top: 21%; transform: rotate(-7deg); }
+    .hero-product.two { width: 175px; height: 175px; background: #d6dfd1; border-radius: 50%; right: 9%; top: 16%; transform: rotate(8deg); }
+    .hero-product.three { width: 205px; height: 155px; background: #e8d9c2; border-radius: 18px; right: 21%; bottom: 10%; transform: rotate(-5deg); }
+    .hero-stamp { position: absolute; z-index: 4; left: 8%; bottom: 10%; width: 105px; height: 105px; border-radius: 50%; background: var(--green); color: #f8f4e9; display: grid; place-items: center; text-align: center; font-size: 8px; line-height: 1.6; letter-spacing: .14em; text-transform: uppercase; border: 1px solid rgba(255,255,255,.5); }
+    .hero-stamp strong { display: block; font-family: Georgia, serif; font-size: 24px; letter-spacing: 0.1em; font-weight: 400; }
+    .visual-caption { position: absolute; right: 24px; bottom: 22px; z-index: 3; font-size: 9px; color: #68776c; letter-spacing: .13em; text-transform: uppercase; }
+    .trust-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,254,250,.45); }
+    .trust-inner { max-width: 1240px; margin: auto; padding: 19px 28px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .trust-item { display: flex; align-items: center; justify-content: center; gap: 11px; color: var(--ink-soft); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+    .trust-item b { color: var(--gold); font-family: Georgia,serif; font-size: 19px; font-weight: 400; }
+    .section { max-width: 1240px; margin: auto; padding: 91px 28px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 34px; }
+    .section-heading h2 { margin: 11px 0 0; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.05; font-weight: 500; letter-spacing: -.04em; }
+    .section-heading p { max-width: 360px; color: var(--ink-soft); font-size: 12px; line-height: 1.8; margin: 0; }
+    .category-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; }
+    .category-card { min-height: 185px; border-radius: 17px; padding: 22px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform .25s; }
+    .category-card:hover { transform: translateY(-4px); }
+    .category-card:nth-child(1) { background: #e8ded0; }
+    .category-card:nth-child(2) { background: #dce5d9; }
+    .category-card:nth-child(3) { background: #e3e5e3; }
+    .category-card:nth-child(4) { background: #e9e2d1; }
+    .category-number { font-size: 9px; letter-spacing: .18em; color: rgba(29,48,44,.62); }
+    .category-icon { position: absolute; width: 105px; height: 105px; right: 12px; top: 29px; opacity: .68; }
+    .category-name { position: relative; z-index: 1; font-size: 17px; letter-spacing: -.02em; max-width: 135px; line-height: 1.2; }
+    .category-name small { display: block; margin-top: 6px; font-family: var(--arabic); font-size: 12px; color: var(--ink-soft); }
+    .products-section { background: var(--white); }
+    .products-wrap { max-width: 1240px; margin: auto; padding: 88px 28px 96px; }
+    .product-tools { display: flex; gap: 10px; align-items: center; }
+    .search-box { border: 1px solid var(--line); border-radius: 99px; background: transparent; padding: 10px 15px; min-width: 190px; outline: none; font-size: 11px; color: var(--ink); }
+    .search-box:focus { border-color: var(--gold); }
+    .filter-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 23px; }
+    .filter-btn { background: transparent; border: 1px solid var(--line); border-radius: 99px; padding: 8px 15px; color: var(--ink-soft); font-size: 10px; transition: .2s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--green); border-color: var(--green); color: white; }
+    .product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 26px 17px; }
+    .product-card { min-width: 0; }
+    .product-art { height: 245px; border-radius: 17px; position: relative; display: grid; place-items: center; overflow: hidden; }
+    .product-art:after { content: ""; position: absolute; width: 190px; height: 190px; border: 1px solid rgba(29,48,44,.11); border-radius: 50%; }
+    .product-art svg { width: 68%; height: 68%; position: relative; z-index: 1; transition: transform .35s; }
+    .product-card:hover .product-art svg { transform: scale(1.06) rotate(-2deg); }
+    .art-home { background: #eee6da; }
+    .art-pet { background: #e1e9df; }
+    .art-car { background: #e5e8e5; }
+    .art-play { background: #eee7d7; }
+    .art-kitchen { background: #e4e3d9; }
+    .art-outdoor { background: #dfe6e2; }
+    .product-label { position: absolute; z-index: 2; top: 13px; left: 14px; font-size: 8px; letter-spacing: .16em; text-transform: uppercase; color: #65746b; }
+    .product-info { display: flex; justify-content: space-between; align-items: start; gap: 12px; padding: 15px 2px 0; }
+    .product-title { font-size: 14px; font-weight: 600; letter-spacing: -.015em; }
+    .product-subtitle { color: var(--ink-soft); font-family: var(--arabic); font-size: 11px; margin-top: 5px; }
+    .product-category { margin-top: 8px; color: #8b938b; font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }
+    .product-arrow { width: 30px; height: 30px; flex: 0 0 30px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--green); font-size: 15px; }
+    .no-results { color: var(--ink-soft); padding: 24px 0; font-size: 13px; display: none; }
+    .catalogue-note { margin: 23px 0 0; color: #8b938b; font-size: 9px; letter-spacing: .02em; line-height: 1.7; }
+    .promise { background: var(--green-deep); color: #f6f4ee; }
+    .promise-inner { max-width: 1240px; margin: auto; padding: 82px 28px; display: grid; grid-template-columns: .9fr 1.1fr; gap: 65px; align-items: center; }
+    .promise .eyebrow { color: #c9ad7c; }
+    .promise h2 { margin: 15px 0 18px; font-size: clamp(34px, 4vw, 50px); line-height: 1.06; letter-spacing: -.045em; font-weight: 450; }
+    .promise-copy { color: rgba(246,244,238,.72); font-size: 13px; line-height: 1.9; max-width: 425px; }
+    .promise-ar { font-family: var(--arabic); direction: rtl; color: #e0d8c8; font-size: 15px; margin-top: 16px; }
+    .promise-values { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
+    .value-card { min-height: 150px; padding: 21px; border: 1px solid rgba(246,244,238,.2); border-radius: 15px; }
+    .value-index { color: #c9ad7c; font-family: Georgia,serif; font-size: 22px; }
+    .value-card h3 { font-size: 14px; font-weight: 550; margin: 13px 0 7px; }
+    .value-card p { margin: 0; color: rgba(246,244,238,.65); font-size: 10px; line-height: 1.7; }
+    .about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 72px; align-items: center; }
+    
+    /* About 区域的高级纯文字排版 */
+    .about-visual { min-height: 320px; border-radius: 20px; background: #e6e8de; position: relative; overflow: hidden; display: grid; place-items: center; }
+    .about-visual .orbit { position: absolute; border: 1px solid rgba(49,86,74,.12); width: 260px; height: 260px; border-radius: 50%; }
+    .about-visual .orbit.two { width: 330px; height: 330px; }
+    .about-type-mark { position: relative; z-index: 2; text-align: center; color: var(--ink); }
+    .about-type-main { font-family: Georgia, "Times New Roman", serif; font-size: 26px; letter-spacing: 0.3em; line-height: 1.6; font-weight: 500; }
+    .about-type-main span { font-size: 34px; letter-spacing: 0.25em; color: var(--gold); }
+    .about-type-ar { margin-top: 12px; font-family: var(--arabic); font-size: 18px; letter-spacing: 0.1em; color: var(--ink-soft); }
+
+    .about-copy h2 { font-size: clamp(31px,3.5vw,45px); line-height: 1.08; font-weight: 500; letter-spacing: -.04em; margin: 13px 0 17px; }
+    .about-copy p { color: var(--ink-soft); font-size: 13px; line-height: 1.9; }
+    .about-copy .arabic-paragraph { font-family: var(--arabic); direction: rtl; text-align: right; }
+    .contact-band { background: #e9e6dc; }
+    .contact-inner { max-width: 1240px; margin: auto; padding: 55px 28px; display: flex; justify-content: space-between; gap: 30px; align-items: center; }
+    .contact-inner h2 { font-size: clamp(26px,3vw,38px); font-weight: 500; letter-spacing: -.04em; margin: 8px 0; }
+    .contact-inner p { color: var(--ink-soft); font-size: 12px; margin: 0; }
+    .email-link { background: var(--green); color: white; border-radius: 99px; padding: 14px 21px; white-space: nowrap; font-size: 11px; }
+    footer { background: #182d27; color: #f6f4ee; }
+    .footer-inner { max-width: 1240px; margin: auto; padding: 35px 28px; display: flex; justify-content: space-between; align-items: end; gap: 28px; }
+    
+    /* Footer 的纯文字 Logo */
+    .footer-brand .brand-name { color: #f6f4ee; font-size: 20px; }
+    .footer-brand .brand-name .diamond { color: #dfc79d; }
+    .footer-brand .brand-ar { color: #c6cfc5; }
+    
+    .footer-note { color: rgba(246,244,238,.56); font-size: 9px; line-height: 1.8; text-align: right; max-width: 400px; }
+    .footer-note a { color: #dfc79d; }
+    .hidden { display: none !important; }
+    body.ar .nav { direction: rtl; }
+    body.ar .hero, body.ar .section-heading, body.ar .promise-inner, body.ar .about, body.ar .contact-inner { direction: rtl; }
+    body.ar .hero-copy, body.ar .section-heading p, body.ar .promise-copy, body.ar .about-copy p { text-align: right; }
+    body.ar .eyebrow { flex-direction: row-reverse; letter-spacing: .02em; }
+    body.ar .product-label { left: auto; right: 14px; }
+    body.ar .trust-inner, body.ar .filter-row { direction: rtl; }
+    body.ar .footer-inner { direction: rtl; }
+    body.ar .footer-note { text-align: left; }
+    @media (max-width: 900px) {
+      .nav { gap: 16px; }
+      .header-inner { padding-inline: 20px; }
+      .hero { gap: 25px; padding-top: 55px; }
+      .hero-visual { min-height: 420px; }
+      .hero-product.one { width: 155px; height: 185px; }
+      .hero-product.two { width: 145px; height: 145px; }
+      .hero-product.three { width: 170px; height: 130px; }
+      .category-grid { grid-template-columns: repeat(2,1fr); }
+      .promise-inner, .about { gap: 35px; }
+    }
+    @media (max-width: 680px) {
+      .announcement { font-size: 9px; letter-spacing: .1em; }
+      .header-inner { padding: 13px 17px; flex-wrap: wrap; gap: 12px; }
+      .brand { min-width: 0; }
+      .brand-name { font-size: 18px; letter-spacing: 0.15em; }
+      .brand-name .diamond { font-size: 9px; }
+      .nav { order: 3; width: 100%; justify-content: space-between; gap: 8px; font-size: 10px; padding-top: 7px; }
+      .header-contact { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 48px 18px 47px; }
+      h1 { font-size: clamp(43px, 12vw, 59px); }
+      .hero-copy { font-size: 13px; }
+      .hero-visual { min-height: 365px; }
+      .hero-product.one { width: 145px; height: 170px; left: 12%; top: 23%; }
+      .hero-product.two { width: 125px; height: 125px; right: 8%; top: 18%; }
+      .hero-product.three { width: 160px; height: 120px; right: 17%; bottom: 9%; }
+      .hero-stamp { width: 83px; height: 83px; font-size: 7px; }
+      .hero-stamp strong { font-size: 19px; }
+      .trust-inner { padding: 15px 17px; gap: 9px; }
+      .trust-item { font-size: 8px; letter-spacing: .07em; text-align: center; gap: 5px; flex-direction: column; }
+      .section, .products-wrap { padding: 63px 18px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 12px; }
+      .section-heading p { font-size: 11px; }
+      .category-card { min-height: 155px; padding: 17px; }
+      .category-icon { width: 82px; height: 82px; right: 6px; top: 27px; }
+      .category-name { font-size: 14px; max-width: 120px; }
+      .category-name small { font-size: 10px; }
+      .product-tools { width: 100%; }
+      .search-box { min-width: 0; width: 100%; }
+      .product-grid { grid-template-columns: repeat(2,1fr); gap: 20px 11px; }
+      .product-art { height: 175px; }
+      .product-info { padding-top: 11px; }
+      .product-title { font-size: 12px; }
+      .product-subtitle { font-size: 10px; }
+      .product-arrow { width: 26px; height: 26px; flex-basis: 26px; }
+      .promise-inner { grid-template-columns: 1fr; padding: 63px 18px; gap: 28px; }
+      .promise-values { gap: 9px; }
+      .value-card { padding: 15px; min-height: 135px; }
+      .value-card h3 { font-size: 12px; }
+      .value-card p { font-size: 9px; }
+      .about { grid-template-columns: 1fr; gap: 26px; }
+      .about-visual { min-height: 245px; }
+      .about-type-main { font-size: 20px; letter-spacing: 0.2em; }
+      .about-type-main span { font-size: 26px; letter-spacing: 0.15em; }
+      .about-type-ar { font-size: 15px; }
+      .contact-inner { padding: 43px 18px; align-items: start; flex-direction: column; }
+      .email-link { padding: 12px 18px; }
+      .footer-inner { padding: 30px 18px; align-items: start; flex-direction: column; }
+      .footer-note { text-align: left; }
+      body.ar .footer-note { text-align: right; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement" data-en="A considered selection for everyday living" data-ar="اختيارات مدروسة لحياة يومية أجمل">A considered selection for everyday living</div>
+  <header class="site-header">
+    <div class="header-inner">
+      
+      <!-- 替换后的顶部纯文字 Logo -->
+      <a class="brand" href="#home" aria-label="TRUE AURA home">
+        <span class="brand-wordmark">
+          <span class="brand-name">TRUE <span class="diamond">◆</span> AURA</span>
+          <span class="brand-ar" lang="ar">ترو أورا</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="#collections" data-en="Collections" data-ar="المجموعات">Collections</a>
+        <a href="#featured" data-en="Featured" data-ar="مختاراتنا">Featured</a>
+        <a href="#about" data-en="Our Story" data-ar="قصتنا">Our Story</a>
+      </nav>
+      <div class="header-actions">
+        <button class="lang-toggle" id="languageToggle" type="button" aria-label="Switch language">العربية</button>
+        <a class="header-contact" href="#contact" data-en="Get in touch" data-ar="تواصل معنا">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow" data-en="Everyday essentials, thoughtfully chosen" data-ar="احتياجات يومية مختارة بعناية">Everyday essentials, thoughtfully chosen</div>
+        <h1 data-en-html="Good things<br>for <em>everyday</em><br>living." data-ar-html="اختيارات أجمل<br>لحياة <em>كل يوم</em>.">Good things<br>for <em>everyday</em><br>living.</h1>
+        <p class="hero-copy" data-en="Discover useful, well-considered finds for your home, your journeys and the little moments that make life feel good." data-ar="اكتشف منتجات عملية ومدروسة بعناية لمنزلك ورحلاتك وللتفاصيل الصغيرة التي تجعل الحياة أجمل.">Discover useful, well-considered finds for your home, your journeys and the little moments that make life feel good.</p>
+        <p class="hero-ar" lang="ar" dir="rtl">منتجات مختارة بعناية لتفاصيل الحياة اليومية</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#featured"><span data-en="Explore the collection" data-ar="اكتشف مجموعتنا">Explore the collection</span><span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#about" data-en="The TRUE AURA approach" data-ar="رؤية ترو أورا">The TRUE AURA approach</a>
+        </div>
+        <div class="hero-note"><span></span><span data-en="Quality you can trust" data-ar="جودة يمكنك الوثوق بها">Quality you can trust</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Illustrated selection of home and everyday products">
+        <div class="visual-kicker" data-en="The everyday edit / 01" data-ar="مختارات الحياة اليومية / ٠١">The everyday edit / 01</div>
+        <div class="hero-product one">
+          <svg viewBox="0 0 180 190" fill="none" aria-hidden="true">
+            <path d="M54 137h72l-8 18H62l-8-18Z" fill="#31564a"/>
+            <path d="M66 135c-1-22 9-38 24-49 15 11 25 27 24 49H66Z" fill="#b38d54"/>
+            <path d="M83 83c-2-18 0-31 7-44 7 13 9 26 7 44" fill="#53695b"/>
+            <path d="M90 39c-2-13 4-20 9-25 4 12 2 20-9 25Z" fill="#b38d54"/>
+            <path d="M59 159h62" stroke="#1d302c" stroke-width="2" stroke-linecap="round"/>
+            <path d="M71 114h38" stroke="#e6d7bb" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="hero-product two">
+          <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+            <path d="M45 112c28-7 50-24 73-47 7-7 16-3 13 6-9 25-29 48-55 57-16 6-30 2-31-16Z" fill="#31564a"/>
+            <path d="M58 123c-13 13-21 17-31 22M112 69l27-27M136 42l-9 1 1 9" stroke="#b38d54" stroke-width="4" stroke-linecap="round"/>
+            <path d="M43 131c-10 7-15 13-19 20M53 137c-5 10-6 16-6 22M34 128c-8 1-15 4-21 10" stroke="#b38d54" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="141" cy="35" r="7" fill="#b38d54"/>
+          </svg>
+        </div>
+        <div class="hero-product three">
+          <svg viewBox="0 0 210 150" fill="none" aria-hidden="true">
+            <rect x="31" y="35" width="148" height="84" rx="10" fill="#31564a"/>
+            <path d="M49 53h112v49H49z" fill="#d8dfd4"/>
+            <path d="M65 67h32v22H65zM109 67h37v7h-37zM109 82h27v7h-27z" fill="#b38d54"/>
+            <path d="M84 119v11M126 119v11" stroke="#1d302c" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="hero-stamp"><div><strong>TA</strong><span data-en="chosen with care" data-ar="مختارة بعناية">chosen with care</span></div></div>
+        <div class="visual-caption" data-en="Useful by nature · considered by design" data-ar="عملية بطبيعتها · مدروسة في تصميمها">Useful by nature · considered by design</div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="trust-inner">
+        <div class="trust-item"><b>01</b><span data-en="Thoughtful selection" data-ar="اختيار مدروس">Thoughtful selection</span></div>
+        <div class="trust-item"><b>02</b><span data-en="Everyday usefulness" data-ar="فائدة في كل يوم">Everyday usefulness</span></div>
+        <div class="trust-item"><b>03</b><span data-en="Honest brand values" data-ar="قيم قائمة على الصدق">Honest brand values</span></div>
+      </div>
+    </div>
+
+    <section class="section" id="collections">
+      <div class="section-heading">
+        <div><div class="eyebrow" data-en="Explore by interest" data-ar="اكتشف حسب اهتمامك">Explore by interest</div><h2 data-en="A place for everyday finds." data-ar="وجهتك لاكتشاف احتياجاتك اليومية.">A place for everyday finds.</h2></div>
+        <p data-en="From calm corners at home to useful details on the move, explore a changing mix of practical lifestyle essentials." data-ar="من أجواء المنزل الهادئة إلى التفاصيل العملية أثناء التنقل، اكتشف تشكيلة متنوعة من مستلزمات الحياة اليومية.">From calm corners at home to useful details on the move, explore a changing mix of practical lifestyle essentials.</p>
+      </div>
+      <div class="category-grid">
+        <a href="#featured" class="category-card" data-filter-link="home">
+          <span class="category-number">01 / HOME</span>
+          <svg class="category-icon" viewBox="0 0 120 120" fill="none"><path d="M25 85h70l-8 14H33l-8-14Z" fill="#31564a"/><path d="M38 83c0-23 10-39 22-50 12 11 22 27 22 50H38Z" fill="#b38d54"/><path d="M57 35c-3-14 2-23 7-29 6 10 7 20-7 29Z" fill="#748674"/><path d="M34 100h52" stroke="#31564a" stroke-width="2"/></svg>
+          <span class="category-name" data-en="Home & Fragrance" data-ar="المنزل والعطور">Home & Fragrance<small lang="ar">المنزل والعطور</small></span>
+        </a>
+        <a href="#featured" class="category-card" data-filter-link="pet">
+          <span class="category-number">02 / PET</span>
+          <svg class="category-icon" viewBox="0 0 120 120" fill="none"><path d="M24 83c14-19 36-31 62-55" stroke="#31564a" stroke-width="5" stroke-linecap="round"/><path d="M73 30c4-12 15-19 25-18-1 12-8 22-22 25M81 42c9-10 22-11 31-6-5 11-16 17-29 13M65 27c-8-10-8-23-2-30 9 7 13 19 7 31" fill="#b38d54"/><path d="M18 91c8-7 14-9 22-9M13 101c8-5 16-6 24-4" stroke="#31564a" stroke-width="3" stroke-linecap="round"/></svg>
+          <span class="category-name" data-en="Pet Companions" data-ar="مستلزمات الحيوانات الأليفة">Pet Companions<small lang="ar">مستلزمات الحيوانات الأليفة</small></span>
+        </a>
+        <a href="#featured" class="category-card" data-filter-link="car">
+          <span class="category-number">03 / ON THE MOVE</span>
+          <svg class="category-icon" viewBox="0 0 120 120" fill="none"><path d="M26 42h68l8 56H18l8-56Z" fill="#31564a"/><path d="M34 52h52v36H34z" fill="#e6e9e2"/><path d="M43 60h15v14H43zM64 60h14v5H64zM64 70h14v5H64z" fill="#b38d54"/><path d="M47 42V30h26v12" stroke="#31564a" stroke-width="4"/></svg>
+          <span class="category-name" data-en="Car Essentials" data-ar="مستلزمات السيارة">Car Essentials<small lang="ar">مستلزمات السيارة</small></span>
+        </a>
+        <a href="#featured" class="category-card" data-filter-link="play">
+          <span class="category-number">04 / PLAY</span>
+          <svg class="category-icon" viewBox="0 0 120 120" fill="none"><path d="M40 25h40l8 22-7 53H39l-7-53 8-22Z" fill="#b38d54"/><circle cx="50" cy="53" r="4" fill="#31564a"/><circle cx="70" cy="53" r="4" fill="#31564a"/><path d="M51 69c5 5 13 5 18 0" stroke="#31564a" stroke-width="3" stroke-linecap="round"/><path d="M39 26 31 12M81 26l8-14" stroke="#31564a" stroke-width="4" stroke-linecap="round"/></svg>
+          <span class="category-name" data-en="Toys & Collectibles" data-ar="الألعاب والمقتنيات">Toys & Collectibles<small lang="ar">الألعاب والمقتنيات</small></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="products-section" id="featured">
+      <div class="products-wrap">
+        <div class="section-heading">
+          <div><div class="eyebrow" data-en="A few things to discover" data-ar="مجموعة من المنتجات المختارة">A few things to discover</div><h2 data-en="The featured selection." data-ar="مختاراتنا المميزة.">The featured selection.</h2></div>
+          <div class="product-tools"><input id="productSearch" class="search-box" type="search" placeholder="Search the selection" data-en-placeholder="Search the selection" data-ar-placeholder="ابحث في المنتجات" aria-label="Search products"></div>
+        </div>
+        <div class="filter-row" role="group" aria-label="Filter products">
+          <button class="filter-btn active" type="button" data-filter="all" data-en="All finds" data-ar="كل المنتجات">All finds</button>
+          <button class="filter-btn" type="button" data-filter="home" data-en="Home" data-ar="المنزل">Home</button>
+          <button class="filter-btn" type="button" data-filter="pet" data-en="Pet" data-ar="الحيوانات الأليفة">Pet</button>
+          <button class="filter-btn" type="button" data-filter="car" data-en="Car" data-ar="السيارة">Car</button>
+          <button class="filter-btn" type="button" data-filter="play" data-en="Play" data-ar="الألعاب">Play</button>
+          <button class="filter-btn" type="button" data-filter="kitchen" data-en="Kitchen" data-ar="المطبخ">Kitchen</button>
+          <button class="filter-btn" type="button" data-filter="outdoor" data-en="Outdoor" data-ar="الأنشطة الخارجية">Outdoor</button>
+        </div>
+        <div class="product-grid" id="productGrid">
+          <article class="product-card" data-category="home" data-search="incense burner mabkhara home fragrance مبخرة المنزل">
+            <div class="product-art art-home"><span class="product-label">HOME / 01</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><ellipse cx="120" cy="157" rx="65" ry="9" fill="#c7b79e"/><path d="M77 127h86l-11 25H88l-11-25Z" fill="#31564a"/><path d="M91 124c0-24 10-42 29-56 19 14 29 32 29 56H91Z" fill="#b38d54"/><path d="M111 70c-4-16 1-29 9-39 9 13 10 27-9 39Z" fill="#758676"/><path d="M120 31c-1-13 5-21 11-27 5 11 3 20-11 27Z" fill="#b38d54"/><path d="M100 100h40" stroke="#f0e6d4" stroke-width="3"/><path d="M89 153h62" stroke="#31564a" stroke-width="2"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Sculpted incense burner" data-ar="مبخرة بتصميم أنيق">Sculpted incense burner</div><div class="product-subtitle" lang="ar">مبخرة بتصميم أنيق</div><div class="product-category" data-en="Home & fragrance" data-ar="المنزل والعطور">Home & fragrance</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Incense%20Burner" aria-label="Enquire about incense burner">↗</a></div>
+          </article>
+          <article class="product-card" data-category="pet" data-search="cat teaser feather wand toy pet لعبة قطط">
+            <div class="product-art art-pet"><span class="product-label">PET / 02</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><path d="M42 151 157 38" stroke="#31564a" stroke-width="7" stroke-linecap="round"/><path d="M151 45c-1-20 8-35 21-42 8 18 5 32-21 42Z" fill="#b38d54"/><path d="M162 49c8-20 24-29 40-28-3 19-17 31-40 28Z" fill="#758676"/><path d="M148 56c-17-12-24-28-21-42 18 9 27 22 21 42Z" fill="#d1ae78"/><path d="M36 157h24" stroke="#b38d54" stroke-width="4" stroke-linecap="round"/><circle cx="40" cy="153" r="8" fill="#31564a"/><path d="M94 116c10-10 17-15 26-20" stroke="#78917e" stroke-width="2" stroke-dasharray="3 6"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Feather teaser wand" data-ar="لعبة عصا الريش للقطط">Feather teaser wand</div><div class="product-subtitle" lang="ar">لعبة عصا الريش للقطط</div><div class="product-category" data-en="Pet companions" data-ar="مستلزمات الحيوانات الأليفة">Pet companions</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Cat%20Teaser" aria-label="Enquire about feather teaser wand">↗</a></div>
+          </article>
+          <article class="product-card" data-category="pet" data-search="woven walking lead leash pet accessory مقود">
+            <div class="product-art art-pet"><span class="product-label">PET / 03</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><path d="M82 51c-22 0-38 17-38 38v27c0 18 15 32 33 32h14c18 0 33-14 33-32V91c0-23-18-40-42-40Z" stroke="#31564a" stroke-width="8"/><path d="M82 60c-14 0-24 11-24 25v31c0 10 8 18 18 18h17c10 0 18-8 18-18V88c0-16-12-28-29-28Z" stroke="#b38d54" stroke-width="5"/><path d="M125 104c23 0 37 13 37 30 0 13-10 22-22 22h-4" stroke="#31564a" stroke-width="7" stroke-linecap="round"/><path d="M157 134h23v14h-23z" fill="#b38d54"/><path d="M173 134v-12c0-7 6-13 13-13s13 6 13 13v12" stroke="#31564a" stroke-width="5"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Woven walking lead" data-ar="مقود للمشي بتصميم مجدول">Woven walking lead</div><div class="product-subtitle" lang="ar">مقود للمشي بتصميم مجدول</div><div class="product-category" data-en="Pet companions" data-ar="مستلزمات الحيوانات الأليفة">Pet companions</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Walking%20Lead" aria-label="Enquire about walking lead">↗</a></div>
+          </article>
+          <article class="product-card" data-category="car" data-search="car seat organizer storage auto سيارة منظم">
+            <div class="product-art art-car"><span class="product-label">CAR / 04</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><path d="M72 35h96l14 116H58L72 35Z" fill="#31564a"/><path d="M86 49h68l9 87H77l9-87Z" fill="#dfe5dc"/><path d="M86 79h68v57H86z" fill="#b38d54"/><path d="M98 91h18v27H98zM125 91h17v27h-17z" fill="#f5eee1"/><path d="M97 36V24h46v12" stroke="#31564a" stroke-width="6" stroke-linecap="round"/><path d="M67 151h106" stroke="#1d302c" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Car seat organizer" data-ar="منظم مقعد السيارة">Car seat organizer</div><div class="product-subtitle" lang="ar">منظم مقعد السيارة</div><div class="product-category" data-en="Car essentials" data-ar="مستلزمات السيارة">Car essentials</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Car%20Organizer" aria-label="Enquire about car seat organizer">↗</a></div>
+          </article>
+          <article class="product-card" data-category="play" data-search="collectible soft figure toy doll لعبة دمية مجسم">
+            <div class="product-art art-play"><span class="product-label">PLAY / 05</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><path d="M89 55c0-19 14-33 31-33s31 14 31 33v9H89v-9Z" fill="#b38d54"/><path d="M83 66c0-8 7-15 15-15h44c8 0 15 7 15 15v59c0 17-14 31-31 31h-29c-17 0-31-14-31-31V66Z" fill="#d7c9ae"/><circle cx="105" cy="88" r="5" fill="#31564a"/><circle cx="135" cy="88" r="5" fill="#31564a"/><path d="M108 109c8 8 16 8 24 0" stroke="#31564a" stroke-width="4" stroke-linecap="round"/><path d="M83 76 61 96M157 76l22 20" stroke="#b38d54" stroke-width="13" stroke-linecap="round"/><path d="M100 153v14M140 153v14" stroke="#31564a" stroke-width="12" stroke-linecap="round"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Collectible soft figure" data-ar="مجسم ناعم قابل للاقتناء">Collectible soft figure</div><div class="product-subtitle" lang="ar">مجسم ناعم قابل للاقتناء</div><div class="product-category" data-en="Toys & collectibles" data-ar="الألعاب والمقتنيات">Toys & collectibles</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Collectible%20Figure" aria-label="Enquire about collectible figure">↗</a></div>
+          </article>
+          <article class="product-card" data-category="kitchen" data-search="kitchen storage jars containers organizer مطبخ تخزين">
+            <div class="product-art art-kitchen"><span class="product-label">KITCHEN / 06</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><rect x="39" y="60" width="45" height="91" rx="7" fill="#f7f2e8" stroke="#31564a" stroke-width="3"/><rect x="43" y="48" width="37" height="15" rx="3" fill="#b38d54"/><rect x="98" y="44" width="45" height="107" rx="7" fill="#f7f2e8" stroke="#31564a" stroke-width="3"/><rect x="102" y="32" width="37" height="15" rx="3" fill="#b38d54"/><rect x="157" y="69" width="45" height="82" rx="7" fill="#f7f2e8" stroke="#31564a" stroke-width="3"/><rect x="161" y="57" width="37" height="15" rx="3" fill="#b38d54"/><path d="M46 112h31M105 103h31M164 119h31" stroke="#9ba99a" stroke-width="11"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Modular storage jars" data-ar="عبوات تخزين متعددة الاستخدام">Modular storage jars</div><div class="product-subtitle" lang="ar">عبوات تخزين متعددة الاستخدام</div><div class="product-category" data-en="Kitchen & storage" data-ar="المطبخ والتخزين">Kitchen & storage</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Storage%20Jars" aria-label="Enquire about modular storage jars">↗</a></div>
+          </article>
+          <article class="product-card" data-category="outdoor" data-search="rechargeable running safety light outdoor مصباح الجري">
+            <div class="product-art art-outdoor"><span class="product-label">OUTDOOR / 07</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><path d="M51 96c0-29 23-52 52-52h34c29 0 52 23 52 52v12c0 18-14 32-32 32H83c-18 0-32-14-32-32V96Z" stroke="#31564a" stroke-width="9"/><path d="M91 56h58v88H91z" fill="#f4ead6" stroke="#b38d54" stroke-width="4"/><rect x="102" y="72" width="36" height="37" rx="7" fill="#b38d54"/><path d="M112 81v19M128 81v19" stroke="#fff7e9" stroke-width="3" stroke-linecap="round"/><path d="M108 123h24" stroke="#31564a" stroke-width="3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Compact running safety light" data-ar="مصباح أمان صغير للجري">Compact running safety light</div><div class="product-subtitle" lang="ar">مصباح أمان صغير للجري</div><div class="product-category" data-en="Outdoor essentials" data-ar="مستلزمات الأنشطة الخارجية">Outdoor essentials</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Running%20Light" aria-label="Enquire about running safety light">↗</a></div>
+          </article>
+          <article class="product-card" data-category="home" data-search="decorative tray home decor صينية ديكور">
+            <div class="product-art art-home"><span class="product-label">HOME / 08</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><path d="M40 105c15-25 45-39 80-39s65 14 80 39l-13 42H53l-13-42Z" fill="#31564a"/><path d="M56 107c14-17 37-26 64-26s50 9 64 26l-9 28H65l-9-28Z" fill="#e9dfcc"/><path d="M86 100c8-12 20-17 34-17s26 5 34 17" stroke="#b38d54" stroke-width="4"/><circle cx="120" cy="112" r="12" fill="#b38d54"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Decorative serving tray" data-ar="صينية تقديم أنيقة">Decorative serving tray</div><div class="product-subtitle" lang="ar">صينية تقديم أنيقة</div><div class="product-category" data-en="Home & living" data-ar="المنزل والمعيشة">Home & living</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Decorative%20Tray" aria-label="Enquire about decorative serving tray">↗</a></div>
+          </article>
+          <article class="product-card" data-category="car" data-search="car phone holder mobile mount سيارة حامل هاتف">
+            <div class="product-art art-car"><span class="product-label">CAR / 09</span>
+              <svg viewBox="0 0 240 190" fill="none" aria-hidden="true"><rect x="87" y="23" width="66" height="115" rx="13" fill="#31564a"/><rect x="94" y="32" width="52" height="96" rx="7" fill="#e7ece4"/><rect x="104" y="48" width="32" height="60" rx="3" fill="#b9c8b9"/><path d="M120 138v18M88 156h64" stroke="#31564a" stroke-width="7" stroke-linecap="round"/><path d="M101 156 79 169M139 156l22 13" stroke="#b38d54" stroke-width="5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="product-info"><div><div class="product-title" data-en="Adjustable phone holder" data-ar="حامل هاتف قابل للتعديل">Adjustable phone holder</div><div class="product-subtitle" lang="ar">حامل هاتف قابل للتعديل</div><div class="product-category" data-en="Car essentials" data-ar="مستلزمات السيارة">Car essentials</div></div><a class="product-arrow" href="mailto:ganquan1215@163.com?subject=TRUE%20AURA%20Product%20Enquiry%3A%20Phone%20Holder" aria-label="Enquire about adjustable phone holder">↗</a></div>
+          </article>
+        </div>
+        <p class="no-results" id="noResults" data-en="No items match your search. Try another word." data-ar="لا توجد منتجات مطابقة لبحثك. جرّب كلمة أخرى.">No items match your search. Try another word.</p>
+        <p class="catalogue-note" data-en="Product artwork is illustrative. Actual product details, availability and packaging should be confirmed on the relevant product listing." data-ar="الرسومات المعروضة توضيحية. يرجى الرجوع إلى صفحة المنتج المعني للتأكد من التفاصيل الفعلية والتوفر والتغليف.">Product artwork is illustrative. Actual product details, availability and packaging should be confirmed on the relevant product listing.</p>
+      </div>
+    </section>
+
+    <section class="promise">
+      <div class="promise-inner">
+        <div>
+          <div class="eyebrow" data-en="The TRUE AURA promise" data-ar="وعد ترو أورا">The TRUE AURA promise</div>
+          <h2 data-en="A better choice<br>should feel right." data-ar-html="الاختيار الأفضل<br>يبدأ بالثقة.">A better choice<br>should feel right.</h2>
+          <p class="promise-copy" data-en="We believe everyday products should be useful, thoughtfully selected and worth bringing into your life. Our aim is simple: make it easier to find things that feel right for the way you live." data-ar="نؤمن بأن المنتجات اليومية يجب أن تكون عملية ومختارة بعناية وتستحق أن تكون جزءاً من حياتك. هدفنا بسيط: مساعدتك في العثور على منتجات تناسب أسلوب حياتك.">We believe everyday products should be useful, thoughtfully selected and worth bringing into your life. Our aim is simple: make it easier to find things that feel right for the way you live.</p>
+          <p class="promise-ar" lang="ar">جودة يمكنك الوثوق بها</p>
+        </div>
+        <div class="promise-values">
+          <div class="value-card"><div class="value-index">01</div><h3 data-en="Honesty first" data-ar="الصدق أولاً">Honesty first</h3><p data-en="Clear information and a straightforward approach in every interaction." data-ar="معلومات واضحة وتعامل صريح في كل تواصل.">Clear information and a straightforward approach in every interaction.</p></div>
+          <div class="value-card"><div class="value-index">02</div><h3 data-en="Quality matters" data-ar="الجودة مهمة">Quality matters</h3><p data-en="A focus on useful details, practical design and considered choices." data-ar="اهتمام بالتفاصيل المفيدة والتصميم العملي والاختيارات المدروسة.">A focus on useful details, practical design and considered choices.</p></div>
+          <div class="value-card"><div class="value-index">03</div><h3 data-en="Made for real life" data-ar="مصممة للحياة اليومية">Made for real life</h3><p data-en="Everyday essentials chosen with the needs of daily life in mind." data-ar="مستلزمات يومية نختارها مع مراعاة احتياجات الحياة الحقيقية.">Everyday essentials chosen with the needs of daily life in mind.</p></div>
+          <div class="value-card"><div class="value-index">04</div><h3 data-en="Trust over shortcuts" data-ar="الثقة قبل الاختصارات">Trust over shortcuts</h3><p data-en="Building lasting confidence matters more than chasing the lowest price." data-ar="بناء الثقة على المدى الطويل أهم من السعي وراء أقل سعر.">Building lasting confidence matters more than chasing the lowest price.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      
+      <!-- 替换后的中间区域纯文字排版 -->
+      <div class="about-visual" aria-hidden="true">
+        <div class="orbit"></div><div class="orbit two"></div>
+        <div class="about-type-mark">
+          <div class="about-type-main">T R U E <br><span>A U R A</span></div>
+          <div class="about-type-ar" lang="ar">ترو أورا</div>
+        </div>
+      </div>
+
+      <div class="about-copy">
+        <div class="eyebrow" data-en="A little about us" data-ar="نبذة عنا">A little about us</div>
+        <h2 data-en="Everyday living, with a little more thought." data-ar="حياة يومية بتفاصيل مدروسة أكثر.">Everyday living, with a little more thought.</h2>
+        <p data-en="TRUE AURA is a lifestyle brand built around a simple idea: the things we use every day deserve thoughtful choices. We bring together a versatile selection across home, pet accessories, car essentials, play and more — with honesty and dependable quality at the heart of the brand." data-ar="ترو أورا علامة تجارية لأسلوب الحياة تقوم على فكرة بسيطة: المنتجات التي نستخدمها كل يوم تستحق اختيارات مدروسة. نقدم تشكيلة متنوعة للمنزل والحيوانات الأليفة والسيارة والألعاب وغيرها، مع وضع الصدق والجودة الموثوقة في صميم علامتنا.">TRUE AURA is a lifestyle brand built around a simple idea: the things we use every day deserve thoughtful choices. We bring together a versatile selection across home, pet accessories, car essentials, play and more — with honesty and dependable quality at the heart of the brand.</p>
+        <p class="arabic-paragraph" lang="ar">ترو أورا علامة تجارية لأسلوب الحياة، نؤمن بأن المنتجات اليومية تستحق الاختيار بعناية. تجمع مجموعتنا بين العملية والجودة والصدق لتكون أقرب إلى احتياجاتك اليومية.</p>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div class="contact-inner">
+        <div><div class="eyebrow" data-en="We would love to hear from you" data-ar="يسعدنا التواصل معك">We would love to hear from you</div><h2 data-en="Questions or product enquiries?" data-ar="هل لديك سؤال أو استفسار عن منتج؟">Questions or product enquiries?</h2><p data-en="Reach the TRUE AURA team by email." data-ar="تواصل مع فريق ترو أورا عبر البريد الإلكتروني.">Reach the TRUE AURA team by email.</p></div>
+        <a class="email-link" href="mailto:ganquan1215@163.com">ganquan1215@163.com&nbsp; ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      
+      <!-- 替换后的底部纯文字 Logo -->
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-wordmark">
+          <span class="brand-name">TRUE <span class="diamond">◆</span> AURA</span>
+          <span class="brand-ar" lang="ar">ترو أورا</span>
+        </span>
+      </a>
+
+      <div class="footer-note"><div data-en="Quality You Can Trust · Thoughtful everyday essentials" data-ar="جودة يمكنك الوثوق بها · مستلزمات يومية مختارة بعناية">Quality You Can Trust · Thoughtful everyday essentials</div><div>© <span id="year"></span> TRUE AURA. <span data-en="All rights reserved." data-ar="جميع الحقوق محفوظة.">All rights reserved.</span></div><div><a href="mailto:ganquan1215@163.com">ganquan1215@163.com</a></div></div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const body = document.body;
+      const toggle = document.getElementById('languageToggle');
+      let language = 'en';
+      const translatedNodes = document.querySelectorAll('[data-en], [data-ar]');
+
+      function setLanguage(next) {
+        language = next;
+        const arabic = language === 'ar';
+        body.classList.toggle('ar', arabic);
+        document.documentElement.lang = arabic ? 'ar' : 'en';
+        document.documentElement.dir = arabic ? 'rtl' : 'ltr';
+        translatedNodes.forEach((node) => {
+          const value = node.getAttribute(arabic ? 'data-ar' : 'data-en');
+          if (value !== null) node.textContent = value;
+        });
+        const htmlNodes = document.querySelectorAll('[data-en-html], [data-ar-html]');
+        htmlNodes.forEach((node) => {
+          const value = node.getAttribute(arabic ? 'data-ar-html' : 'data-en-html');
+          if (value !== null) node.innerHTML = value;
+        });
+        const search = document.getElementById('productSearch');
+        search.placeholder = search.getAttribute(arabic ? 'data-ar-placeholder' : 'data-en-placeholder');
+        toggle.textContent = arabic ? 'English' : 'العربية';
+        toggle.setAttribute('aria-label', arabic ? 'Switch to English' : 'Switch to Arabic');
+        document.title = arabic ? 'ترو أورا — جودة يمكنك الوثوق بها' : 'TRUE AURA — Quality You Can Trust';
+        filterProducts();
+      }
+      toggle.addEventListener('click', () => setLanguage(language === 'en' ? 'ar' : 'en'));
+
+      let activeFilter = 'all';
+      const cards = Array.from(document.querySelectorAll('.product-card'));
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const searchInput = document.getElementById('productSearch');
+      const noResults = document.getElementById('noResults');
+      function filterProducts() {
+        const term = searchInput.value.trim().toLowerCase();
+        let visible = 0;
+        cards.forEach((card) => {
+          const categoryMatches = activeFilter === 'all' || card.dataset.category === activeFilter;
+          const searchMatches = !term || (card.dataset.search + ' ' + card.textContent).toLowerCase().includes(term);
+          const show = categoryMatches && searchMatches;
+          card.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        noResults.style.display = visible ? 'none' : 'block';
+      }
+      filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          activeFilter = button.dataset.filter;
+          filterButtons.forEach((item) => item.classList.toggle('active', item === button));
+          filterProducts();
+        });
+      });
+      searchInput.addEventListener('input', filterProducts);
+      document.querySelectorAll('[data-filter-link]').forEach((link) => {
+        link.addEventListener('click', () => {
+          const category = link.dataset.filterLink;
+          const matchingButton = document.querySelector('.filter-btn[data-filter="' + category + '"]');
+          if (matchingButton) matchingButton.click();
+        });
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
